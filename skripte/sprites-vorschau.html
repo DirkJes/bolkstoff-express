@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Bölkstoff-Express — Sprite-Vorschau</title>
+  <style>
+    body { background:#101020; display:flex; flex-wrap:wrap; gap:12px; padding:20px; font-family:monospace; color:#ccc; justify-content:center; }
+    .s { display:flex; flex-direction:column; align-items:center; }
+    .label { font-size:12px; margin-top:6px; }
+    canvas { image-rendering:pixelated; border:1px solid #333; background:#16162e; }
+  </style>
+</head>
+<body>
+  <script src="src/sprites.js"></script>
+  <script>
+    for (const n of Object.keys(SPRITES.DEFINITION)) {
+      const c = document.createElement('canvas');
+      c.width = 96; c.height = 96;
+      c.getContext('2d').drawImage(SPRITES.rendere(n, 6), 0, 0);
+      const div = document.createElement('div');
+      div.className = 's';
+      div.appendChild(c);
+      const l = document.createElement('span');
+      l.className = 'label';
+      l.textContent = n;
+      div.appendChild(l);
+      document.body.appendChild(div);
+    }
+  </script>
+</body>
+</html>

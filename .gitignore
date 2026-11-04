@@ -1,0 +1,5 @@
+# Bölkstoff-Express — Ausnahmsweise wenig zu ignorieren
+.DS_Store
+*.log
+node_modules/
+.cache/
